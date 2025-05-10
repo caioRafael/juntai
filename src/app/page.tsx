@@ -1,103 +1,106 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, BookOpen, Users } from "lucide-react";
+import Link from "next/link";
+
+const grupos = [
+  {
+    id: "grupo-1",
+    nome: "Desenvolvimento Web Avançado",
+    curso: "Ciência da Computação",
+    descricao: "Grupo para desenvolvimento de projetos web usando React, Next.js e outras tecnologias modernas.",
+    membros: 4,
+  },
+  {
+    id: "grupo-2",
+    nome: "Análise de Dados com Python",
+    curso: "Estatística",
+    descricao: "Grupo para estudar e aplicar técnicas de análise de dados e machine learning com Python.",
+    membros: 3,
+  },
+  {
+    id: "grupo-3",
+    nome: "Projeto Integrador - IoT",
+    curso: "Engenharia Eletrônica",
+    descricao: "Desenvolvimento de soluções IoT para problemas reais usando Arduino e Raspberry Pi.",
+    membros: 5,
+  },
+  {
+    id: "grupo-4",
+    nome: "TCC em Marketing Digital",
+    curso: "Administração",
+    descricao: "Grupo para desenvolvimento de TCC sobre estratégias de marketing digital para pequenas empresas.",
+    membros: 2,
+  },
+  {
+    id: "grupo-5",
+    nome: "Estudo de Caso Clínico",
+    curso: "Enfermagem",
+    descricao: "Grupo para discussão e análise de casos clínicos para o trabalho final da disciplina.",
+    membros: 6,
+  },
+  {
+    id: "grupo-6",
+    nome: "Projeto Sustentabilidade",
+    curso: "Engenharia Ambiental",
+    descricao: "Desenvolvimento de soluções sustentáveis para o campus universitário.",
+    membros: 4,
+  },
+]
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="flex min-h-screen flex-col">
+      <section className="bg-gradient-to-b from-white to-gray-50 py-16 px-4 md:py-24">
+      <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-teal-500">
+              JuntAí: Encontre seu grupo ideal
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Participe de grupos acadêmicos em formação ou crie o seu para reunir colegas em projetos universitários.
+            </p>
+            <Link href="/create">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                Criar novo grupo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      <section className="py-12 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Grupos disponíveis</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {grupos.map((grupo) => (
+              <Card key={grupo.id} className="h-full transition-all hover:shadow-md">
+                <CardHeader>
+                  <CardTitle className="text-xl">{grupo.nome}</CardTitle>
+                  <CardDescription className="flex items-center">
+                    <BookOpen className="h-4 w-4 mr-1 text-emerald-600" />
+                    {grupo.curso}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">{grupo.descricao}</p>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center">
+                  <div className="flex items-center text-sm text-gray-500">
+                    <Users className="h-4 w-4 mr-1" />
+                    <span>{grupo.membros} membros</span>
+                  </div>
+                  <Link href={`/${grupo.id}`}>
+                    <Button variant="outline" size="sm">
+                      Ver grupo
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

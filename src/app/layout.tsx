@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,31 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+          <div className="flex min-h-screen flex-col">
+            <header className="border-b bg-white">
+              <div className="container mx-auto py-4 px-4 flex justify-between items-center">
+                <Link href="/" className="font-bold text-xl text-emerald-600">
+                  Junta Aí
+                </Link>
+                <nav className="flex items-center gap-4">
+                  <Link href="/" className="text-gray-600 hover:text-emerald-600">
+                    Início
+                  </Link>
+                  <Link href="/create" className="text-gray-600 hover:text-emerald-600">
+                    Criar Grupo
+                  </Link>
+                </nav>
+              </div>
+            </header>
+
+            {children}
+
+            <footer className="mt-auto border-t py-6 bg-gray-50">
+              <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
+                <p>© {new Date().getFullYear()} Junta Aí - Plataforma para estudantes universitários</p>
+              </div>
+            </footer>
+          </div>
       </body>
     </html>
   );
